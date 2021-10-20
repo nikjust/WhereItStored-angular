@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Change ip</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>IP</mat-label>
+    <input matInput #ipInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onOkClick()">Ok</button>
+</div>

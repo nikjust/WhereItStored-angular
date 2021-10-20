@@ -1,24 +1,237 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light1" style="background-color: #9dfc03;">
-  <a class="navbar-brand" href="#" style="margin-left: 1%">WIS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-          aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle " style="background-color: #9dfc03;" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button">Action</button>
-            <button class="dropdown-item" type="button">Another action</button>
-            <button class="dropdown-item" type="button">Something else here</button>
-          </div>
-        </div>
-      </li>
-    </ul>
+<div #root style="background: #3e3e3e" class="w-100 h-100">
+  <mat-toolbar color="primary">
+    <div class="container">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <i class="bi {{selectedItem.icon}}" style="font-size: 1.25rem;"></i>
+      </button>
+      <span>
+    <button mat-button [matMenuTriggerFor]="menu">{{selectedItem.name}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let storage of dbbuffer" (click)="changeStorage(storage)">
+
+        <span>{{storage.name}}</span>
+        <i class="bi {{storage.icon}}" style="float: right; font-size: 1.25rem"></i>
+      </button>
+      <button mat-menu-item type="button" data-toggle="modal" href="#AddStorageModal">
+        <mat-divider></mat-divider>
+        Add new storage</button>
+    </mat-menu>
+  </span>
+      <button mat-icon-button class="example-icon settings-b" [matMenuTriggerFor]="settings"
+              aria-label="Example icon-button with share icon">
+        <mat-icon>settings</mat-icon>
+      </button>
+      <mat-menu #settings="matMenu" (click)="$event.stopPropagation()">
+        <p style="color: #ffffff; padding-top: 1%; padding-bottom: 1% !important; margin-bottom: 2px !important;"> IP of
+          host</p>
+        <mat-form-field appearance="outline" class="p-0 m-0 border-0" style="padding: 0 0 0 0; margin: 0 0 0 0;"
+                        (click)="$event.stopPropagation()">
+          <mat-label style="color: white;">Host IP</mat-label>
+          <input matInput #ipInput placeholder="192.168.1.1" (click)="$event.stopPropagation()"
+                 style="color: white; padding: 0 !important;">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" style="margin-left: 0.5em" (click)="HostIpChange()">Save</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  <div class="container" style="">
+    <mat-action-list>
+      <button mat-list-item *ngFor="let item of selectedItem.items" style="">
+        <i class="bi {{item.icon}}" style="font-size: 1.5rem" mat-list-icon></i>
+        <div mat-line>{{item.name}}</div>
+      </button>
+    </mat-action-list>
+    <button mat-stroked-button color="accent" type="button" class="card-bottom-button" data-toggle="modal"
+            href="#AddItemModal">Add new item
+    </button>
+    <!--test-->
+
+    <!--/test-->
   </div>
-</nav>
+</div>
+
+<!-- New item Modal -->
+<div class="modal fade" id="AddItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background: #3e3e3e; color: white;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Add new item</h2>
+        <button type="button" mat-icon-button class="" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="bi bi-x" style="font-size: 2rem;"></i>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <button matSuffix mat-icon-button type="button" id="IconButton" type="button" data-bs-toggle="collapse" data-bs-target="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="bi {{currentitemicon}} mat-icon-centered "></i>
+            </button>
+
+            <div class="table" id="icons"  >
+              <button type="button" mat-icon-button class="mat-icon-centered" *ngFor="let icond of itemicons" (click)="change_icon(icond)" type="button" data-bs-toggle="collapse" data-bs-target="#icons" aria-expanded="false" aria-controls="icons">
+                <i class="bi {{icond}}"></i>
+              </button>
+            </div>
+            <mat-hint>Like "Cat's toy" or "Very bad Book" and etc.</mat-hint>
+          </mat-form-field>
+        </p>
+
+
+        <div class="spacer"></div>
+
+
+
+        <p>
+          <mat-form-field appearance="outline" style="z-index: 1060">
+            <mat-label>Storage</mat-label>
+            <mat-select style="z-index: 1060">
+              <mat-option *ngFor="let item of dbbuffer" value=item.name>{{item.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button type="button" color="warn" data-dismiss="modal">Close</button>
+        <button mat-raised-button type="button" color="basic">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New storage Modal -->
+<div class="modal fade" id="AddStorageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background: #3e3e3e; color: white;">
+      <div class="modal-header">
+        <h2 class="modal-title">Add new storage</h2>
+        <button type="button" mat-icon-button class="" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="bi bi-x" style="font-size: 2rem;"></i>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <button matSuffix mat-icon-button type="button" id="StorageIconButton" type="button" data-bs-toggle="collapse" data-bs-target="#iconsStorage" aria-expanded="false" aria-controls="iconsStorage">
+              <i class="bi {{currentstorageicon}} mat-icon-centered "></i>
+            </button>
+
+            <div class="collapse" id="iconsStorage"  #iconsStorage>
+              <button type="button" mat-icon-button class="mat-icon-centered" *ngFor="let icons of storageicons" (click)="change_storage_icon(icons)"  type="button" data-bs-toggle="collapse" data-bs-target="#iconsStorage" aria-expanded="false" aria-controls="iconsStorage">
+                <i class="bi {{icons}}"></i>
+              </button>
+            </div>
+            <mat-hint>Like "Wardrobe" or "Bag" and etc.</mat-hint>
+          </mat-form-field>
+        </p>
+
+
+        <div class="spacer"></div>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button type="button" color="warn" data-dismiss="modal">Close</button>
+        <button mat-raised-button type="button" color="basic">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="dark-theme" #root>-->
+<!--<div id="color_main" style="background-color: #9dfc03; color: #9dfc03"></div>-->
+
+<!--<nav class="navbar navbar-expand-lg">-->
+<!--  <div class="container">-->
+<!--    <a class="navbar-brand" (click)="restyle()" href="#">-->
+<!--      <img src="https://img.icons8.com/small/32/ffffff/crescent-moon.png"-->
+<!--           *ngIf="root.getAttribute('class') === 'dark-theme'"/>-->
+<!--      <img src="https://img.icons8.com/windows/32/000000/sun&#45;&#45;v1.png"-->
+<!--           *ngIf="root.getAttribute('class') !== 'dark-theme'"/>-->
+<!--    </a>-->
+
+<!--    <ul class="navbar-nav me-auto">-->
+<!--      <li class="nav-item active">-->
+<!--        <div class="dropdown">-->
+<!--          <a class="nav-link dropdown-toggle styled_text" href="#" id="navbarDarkDropdownMenuLink" role="button"-->
+<!--             data-bs-toggle="dropdown" style="color: black" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu" style="background-color: #9dfc03" aria-labelledby="dropdownMenu2" #storage>-->
+<!--            <li *ngFor="let storage of dbbuffer">-->
+<!--              <button class="dropdown-item" type="button"-->
+<!--                      (click)="changeStorage(storage)">{{storage.name}}</button>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+
+<!--    <form class="d-flex m-0 dropdown">-->
+<!--      <a class="mt-1 mb-0 navbar-brand styled_text dropdown-toggle nav-link" href="#" id="dropsettings"-->
+<!--         role="button"-->
+<!--         data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--        <img src='https://img.icons8.com/fluency-systems-regular/32/ffffff/settings.png'-->
+<!--             *ngIf="root.getAttribute('class') === 'dark-theme'"/>-->
+<!--        <img src='https://img.icons8.com/fluency-systems-regular/32/000000/settings.png'-->
+<!--             *ngIf="root.getAttribute('class') !== 'dark-theme'"/>-->
+<!--      </a>-->
+<!--      <ul class="dropdown-menu" style="background-color: #9dfc03" aria-labelledby="dropsettings" #storage>-->
+<!--        <li>-->
+<!--          <button class="dropdown-item" type="button">Settings</button>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <button class="dropdown-item" type="button">Find</button>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <button class="dropdown-item" type="button">Scan</button>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <ul class="list-group col-12">-->
+<!--      <li *ngFor="let item of selectedItem.items" class="list-group-item item-col">{{item.name}}</li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<a href="#" class="btn btn-primary position-absolute end-0 bottom-0 m-4" role="button" data-bs-toggle="button"-->
+<!--   style="border-radius: 100%; padding-top: 0.75rem; padding-bottom: 0.75rem">-->
+<!--  <img src="https://img.icons8.com/material-outlined/24/ffffff/plus-math&#45;&#45;v1.png"/>-->
+<!--</a>-->
+
+
+<!--&lt;!&ndash;Change ip modal&ndash;&gt;-->
+<!--<div class="modal fade" id="changeipModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Change ip</h5>-->
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        ...-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--        <button type="button" class="btn btn-primary">Change ip</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</div>-->
+

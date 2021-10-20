@@ -10,7 +10,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36299a8b-ac4a-4904-8740-11ee1470c820" name="Default Changelist" comment="" />
+    <list default="true" id="36299a8b-ac4a-4904-8740-11ee1470c820" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../GO/Angular/src/app/changeip_dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GO/Angular/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../GO/Angular/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +68,21 @@
       <workItem from="1629212348662" duration="104000" />
       <workItem from="1629741382095" duration="889000" />
       <workItem from="1629808130353" duration="305000" />
+      <workItem from="1630087267849" duration="1998000" />
+      <workItem from="1630131776091" duration="599000" />
+      <workItem from="1630313156914" duration="507000" />
+      <workItem from="1631969983617" duration="3824000" />
+      <workItem from="1632242053651" duration="389000" />
+      <workItem from="1632659497748" duration="1695000" />
+      <workItem from="1632764128435" duration="1188000" />
+      <workItem from="1632935957227" duration="657000" />
+      <workItem from="1633249961856" duration="11000" />
+      <workItem from="1633352107590" duration="14000" />
+      <workItem from="1634286259397" duration="1188000" />
+      <workItem from="1634372662566" duration="599000" />
+      <workItem from="1634455406553" duration="1188000" />
+      <workItem from="1634548133974" duration="58000" />
+      <workItem from="1634548241872" duration="4262000" />
     </task>
     <servers />
   </component>
@@ -79,25 +106,25 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="414" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1628957810415" />
-    <state x="740" y="314" key="FileChooserDialogImpl" timestamp="1629808432012">
+    <state x="740" y="314" key="FileChooserDialogImpl" timestamp="1630313647824">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="740" y="314" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1629808432012" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1629201235262">
+    <state x="740" y="314" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1630313647824" />
+    <state width="1899" height="428" key="GridCell.Tab.0.bottom" timestamp="1634572509529">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1629201235262" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1629201235262">
+    <state width="1899" height="428" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1634572509529" />
+    <state width="1899" height="428" key="GridCell.Tab.0.center" timestamp="1634572509529">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1629201235262" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1629201235262">
+    <state width="1899" height="428" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1634572509529" />
+    <state width="1899" height="428" key="GridCell.Tab.0.left" timestamp="1634572509529">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1629201235262" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1629201235262">
+    <state width="1899" height="428" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1634572509529" />
+    <state width="1899" height="428" key="GridCell.Tab.0.right" timestamp="1634572509529">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1629201235262" />
+    <state width="1899" height="428" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1634572509529" />
   </component>
 </project>

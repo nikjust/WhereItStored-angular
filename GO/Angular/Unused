@@ -1,0 +1,35 @@
+/*export interface DialogData {
+  animal: string;
+  name: string;
+}
+
+@Component({
+  selector: 'changeip_dialog',
+  templateUrl: 'changeip_dialog.html',
+})
+export class changeip_dialog {
+
+
+  constructor(
+    public dialogRef: MatDialogRef<changeip_dialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  onOkClick(): void {
+    this.dialogRef.close();
+  }
+
+
+}*/
+
+/*import {HttpHeaders} from "@angular/common/http";
+
+async getsc(ip: any, headers: any) {
+
+  const Heads = new HttpHeaders().set("command", "get")
+  const data = await this.http.get<any>(`http://${ip}:8081/`/*, {headers: Heads}{ headers: {"command":"get"}},observe: 'body', responseType: 'json').subscribe(value => {
+  })
+  return data
+}*/

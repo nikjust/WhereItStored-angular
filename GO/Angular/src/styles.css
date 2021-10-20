@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+
+.light-theme .navbar,
+.light-theme .dropdown-menu {
+  background: #43ff73 !important;
+}
+
+.light-theme .item-col {
+  background: white;
+}
+
+.light-theme * {
+  color: black !important;
+}
+
+.light-theme {
+  background: white;
+}
+
+
+.dark-theme .navbar,
+.dark-theme .dropdown-menu {
+  background: darkgreen !important;
+}
+
+.dark-theme .item-col {
+  background: #3e3e3e;
+}
+
+.dark-theme .text {
+  color: white;
+}
+
+.dark-theme {
+  background: #3e3e3e;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.settings-b {
+  float: right !important;
+}
+
+.card-bottom-button {
+  width: 100%;
+  margin-bottom: -2%;
+  float: bottom !important;
+
+}
+
+.mat-icon-centered {
+  float: left;
+  font-size: 1rem;
+  vertical-align: center;
+}
+
+.cdk-overlay-container {
+  z-index: 1600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.table {
+  background: #3b3b3b;
+  border-radius: 10%;
+}
